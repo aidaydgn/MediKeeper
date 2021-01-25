@@ -37,7 +37,7 @@ public class RequestADemo_stepDefinition {
 
 
     /**
-     * @And("robot user should not be able to pass the reCAPTCHA")
+     * @ And("robot user should not be able to pass the reCAPTCHA")
      * public void robotUserShouldNotBeAbleToPassTheReCAPTCHA() {
      * <p>
      * requestADemoPage.captchaRobotChallenge();
@@ -55,12 +55,15 @@ public class RequestADemo_stepDefinition {
 
     @When("user fill out the given form with missing required field")
     public void userFillOutTheGivenFormWithMissingRequiredField() {
+
+
         requestADemoPage.enterFormWithMissingField();
 
     }
 
     @And("user clicks Submit button")
     public void userClicksSubmitButton() throws InterruptedException {
+
         requestADemoPage.clickSubmitButton();
 
     }
@@ -68,12 +71,15 @@ public class RequestADemo_stepDefinition {
 
     @Then("user should be able to see {string}")
     public void userShouldBeAbleToSee(String expectedResult1) throws InterruptedException {
+
+
         String actualResult = requestADemoPage.getCaptchaErrorMessage();
         Assert.assertEquals(expectedResult1, actualResult);
     }
 
     @Then("user should see {string}")
     public void userShouldSee(String expectedResult2) {
+
         String actualResult = requestADemoPage.getSubmissionErrorMessage();
         Assert.assertEquals(expectedResult2, actualResult);
     }

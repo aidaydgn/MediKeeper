@@ -3,6 +3,7 @@ package com.medikeeper.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
@@ -28,6 +29,13 @@ public class Driver {
                     case "firefox":
                         WebDriverManager.firefoxdriver().setup();
                         driverPool.set(new FirefoxDriver());
+                        break;
+                    case "chromeheadless":
+                        //to run chrome without interface (headless mode)
+                        WebDriverManager.chromedriver().setup();
+                        ChromeOptions options = new ChromeOptions();
+                        options.setHeadless(true);
+                        driverPool.set(new ChromeDriver(options));
                         break;
                     default:
                         throw new RuntimeException("No such a browser yet!");
